@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>3D Slider</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="main.css"> -->
+    <link rel="stylesheet" href="main.css">
+   <script src="js/jquery-3.4.1.min.js"></script>    
+   <script src="js/modernizr.custom.46884.js"></script>
+
+</head>
+  <body>
+    <div class="main-content">
+        <div class="conatiner">
+            <div class="wrapper">
+                <ul class="slider" id="slider">
+                    <li><a href=""></a><img src="img/6.jpg" data-toggle="magnify">
+                        <div class="description">
+                            <h3>Awesome Slider Now</h3>
+                        </div>
+                    </li>
+                    <!-- ========= -->
+                    <li><a href=""></a><img src="img/1.jpg" data-toggle="magnify">
+                        <div class="description">
+                            <h3>With 3D Transform</h3>
+                        </div>
+                    </li>
+                    <!-- ========= -->
+                    <li><a href=""></a><img src="img/2.jpg" data-toggle="magnify">
+                        <div class="description">
+                            <h3>Braving Reality</h3>
+                        </div>
+                    </li>
+                    <!-- ========= -->
+                    <li><a href=""></a><img src="img/3.jpg" data-toggle="magnify">
+                        <div class="description">
+                            <h3>Hopeful Activity</h3>
+                        </div>
+                    </li>
+                    <!-- ========= -->
+                    <li><a href=""></a><img src="img/4.jpg" data-toggle="magnify">
+                        <div class="description">
+                            <h3>Creative Ground</h3>
+                        </div>
+                    </li>
+                    <!-- ========= -->
+                    <li><a href=""></a><img src="img/5.jpg" data-toggle="magnify">
+                        <div class="description">
+                            <h3>Business Corpmart</h3>
+                        </div>
+                    </li>
+                </ul>
+                <div class="shadow" id="shadow"></div>
+                <div class="nav-arrows" id="nav-arrows">
+                    <a href="">Next</a>
+                    <a href="">Privious</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+   
+    <script src="js/jquery.slicebox.min.js"></script>
+    <script src="js/java.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(function () {
+                var Page = (function () {
+                    var $navArrows = $('#nav-arrows').hide(),
+                        $shadow = $('#shadow').hide(),
+                        slicebox = $('#slider').slicebox({
+                            onReady: function () {
+
+                                $navArrows.show();
+                                $shadow.show();
+
+                            },
+                            orientation: 'r',
+                            cuboidsRandom: true,
+                            disperseFactor: 30
+                        }),
+
+                        init = function () {
+
+                            initEvents();
+
+                        },
+                        initEvents = function () {
+
+                            // add navigation events
+                            $navArrows.children(':first').on('click', function () {
+
+                                slicebox.next();
+                                return false;
+
+                            });
+
+                            $navArrows.children(':last').on('click', function () {
+
+                                slicebox.previous();
+                                return false;
+
+                            });
+
+                        };
+
+                    return { init: init };
+
+                })();
+
+                Page.init();
+
+            });
+        });
+    </script>
+  </body>
+</html>
